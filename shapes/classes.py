@@ -1,36 +1,23 @@
 import abc
 import math
-
 class Shape(abc.ABC):
     @abc.abstractmethod
     def area(self):
-        raise NotImplementedError
-
+        pass
 class Rectangle(Shape):
-    def __init__(self, width: int = 0, height: int = 0):
-        self._width = width
-        self._height = height
+    def __init__(self, length: float, width: float):
+        self.__length = length
+        self.__width = width
+    def get_length(self):
+        return self.__length
+    def get_width(self):
+        return self.__width
     def area(self):
-        return self._width * self._height
-
-
+        return self.__length * self.__width
 class Circle(Shape):
-    def __init__(self, radius: int = 0):
-        self._radius = radius
+    def __init__(self, radius: float):
+        self.__radius = radius
+    def get_radius(self):
+        return self.__radius
     def area(self):
-        return math.pi * self._radius**2
-
-
-class Square(Shape):
-    def __init__(self, side: int = 0):
-        self._side = side
-    def area(self):
-        return self._side * self._side
-
-
-class Triangle(Shape):
-    def __init__(self, base: int = 0, height: int = 0):
-        self._base = base
-        self._height = height
-    def area(self):
-        return 0.5 * self._base * self._height
+        return math.pi * self.__radius ** 2
